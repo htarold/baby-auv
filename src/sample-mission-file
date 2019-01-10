@@ -1,0 +1,16 @@
+# Mission script for SP
+# Fri 13 Apr 11:29:02 +08 2018
+# St. Pat's pool centre: 0118.52206,N,10354.87642,E
+# St. Pat's "remote waypoint (north)": 0118.52968,N,10354.87642,E
+# St. Pat's "remote waypoint (south)": 0118.51444,N,10354.87642,E
+# SP pool kayak end: 0118.59042,N,10346.60623,E
+# SP pool food court end: 0118.57308,N,10346.60681,E
+# SP small pool food court end: 0118.56208,N,10346.60377,E
+# SP small pool gym end: 0118.56240,N,10346.59920,E
+$auvid,99
+$waypoint,0118.5753,N,10346.6050,E,2,100
+$waypoint,0118.5865,N,10346.6066,E,2,100
+$waypoint,0118.5753,N,10346.6050,E,2,100
+$waypoint,0118.5865,N,10346.6066,E,2,100
+$waypoint,0118.5753,N,10346.6050,E,2,100
+$end,0118.5865,N,10346.6066,E,2,100

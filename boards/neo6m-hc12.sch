@@ -1,0 +1,662 @@
+v 20130925 2
+C 40000 40000 0 0 0 title-A3.sym
+C 43700 47100 1 0 0 baby-idc-1.sym
+{
+T 43950 46850 5 10 0 1 0 0 1
+device=HEADER20
+T 44400 51300 5 10 1 1 0 0 1
+refdes=J1
+T 43700 47100 5 10 0 1 0 0 1
+footprint=BABY_PERIPHERAL_INTERFACE
+}
+C 43300 49100 1 0 0 gnd-1.sym
+C 45400 49000 1 0 0 5V-plus-1.sym
+C 44400 45600 1 0 0 5V-plus-1.sym
+C 43300 45400 1 0 0 resistor-v-1.sym
+{
+T 43600 45800 5 10 0 0 0 0 1
+device=RESISTOR
+T 43600 46100 5 10 1 1 180 0 1
+refdes=R1
+T 43500 45800 5 10 1 1 180 0 1
+value=47k
+T 43600 45600 5 10 0 1 0 0 1
+footprint=0805
+}
+C 43600 46300 1 0 0 5V-plus-1.sym
+N 45200 49400 43400 49400 4
+N 43800 49000 45600 49000 4
+N 43800 47800 43100 47800 4
+{
+T 43100 47800 5 10 1 1 0 0 1
+netname=gp_sel_A
+}
+N 46600 45600 45300 45600 4
+{
+T 45400 45600 5 10 1 1 0 0 1
+netname=gps_tx
+}
+C 46300 45300 1 270 1 gnd-1.sym
+C 40600 48900 1 0 0 capacitor-v-1.sym
+{
+T 40800 49600 5 10 0 0 0 0 1
+device=CAPACITOR
+T 41000 49700 5 10 1 1 180 0 1
+refdes=C1
+T 40900 49200 5 10 1 1 180 0 1
+value=4.7uF
+T 40900 49100 5 10 0 1 0 0 1
+footprint=0805
+T 40800 49800 5 10 0 0 0 0 1
+symversion=0.1
+}
+C 40900 49800 1 0 0 5V-plus-1.sym
+C 41000 48600 1 0 0 gnd-1.sym
+N 41800 46500 42500 46500 4
+{
+T 41800 46500 5 10 1 1 0 0 1
+netname=mcu_tx
+}
+C 40800 45800 1 0 0 gnd-1.sym
+C 40900 46400 1 0 0 resistor-h-1.sym
+{
+T 41200 46800 5 10 0 0 0 0 1
+device=RESISTOR
+T 41500 46600 5 10 1 1 0 0 1
+refdes=R2
+T 41100 46600 5 10 1 1 0 0 1
+value=100
+T 41200 46600 5 10 0 1 0 0 1
+footprint=0805
+}
+C 40900 46800 1 0 0 resistor-h-1.sym
+{
+T 41200 47200 5 10 0 0 0 0 1
+device=RESISTOR
+T 41500 47000 5 10 1 1 0 0 1
+refdes=R3
+T 41100 47000 5 10 1 1 0 0 1
+value=100
+T 41200 47000 5 10 0 1 0 0 1
+footprint=0805
+}
+N 45200 48200 45900 48200 4
+{
+T 45200 48200 5 10 1 1 0 0 1
+netname=mcu_tx
+}
+N 42100 48200 42900 48200 4
+{
+T 42100 48200 5 10 1 1 0 0 1
+netname=mcu_soft_tx
+}
+N 43800 48600 43100 48600 4
+{
+T 43100 48600 5 10 1 1 0 0 1
+netname=gp_sel_B
+}
+C 45200 50900 1 0 0 nc-right-1.sym
+{
+T 45300 51400 5 10 0 0 0 0 1
+value=NoConnection
+T 45300 51600 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 44100 45600 1 180 1 pmos-sot23-4.sym
+{
+T 44700 45100 5 10 0 0 180 6 1
+device=PMOS_TRANSISTOR
+T 44800 45000 5 10 1 1 180 6 1
+refdes=Q1
+T 44100 45600 5 10 0 0 180 6 1
+footprint=SOT23
+T 44600 45100 5 10 1 1 0 0 1
+value=Si2301
+}
+N 44600 44800 45300 44800 4
+{
+T 44400 44600 5 10 1 1 0 0 1
+netname=gps_power_switched
+}
+N 45300 44800 45300 45200 4
+C 42900 48100 1 0 0 resistor-h-1.sym
+{
+T 43200 48500 5 10 0 0 0 0 1
+device=RESISTOR
+T 43500 48300 5 10 1 1 0 0 1
+refdes=R4
+T 43100 48300 5 10 1 1 0 0 1
+value=100
+T 43200 48300 5 10 0 1 0 0 1
+footprint=0805
+}
+N 45200 47800 45900 47800 4
+{
+T 45200 47800 5 10 1 1 0 0 1
+netname=mcu_soft_rx
+}
+C 45200 47300 1 0 0 nc-right-1.sym
+{
+T 45300 47800 5 10 0 0 0 0 1
+value=NoConnection
+T 45300 48000 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 45200 42600 1 0 0 resistor-v-1.sym
+{
+T 45500 43000 5 10 0 0 0 0 1
+device=RESISTOR
+T 45500 42800 5 10 0 1 0 0 1
+footprint=0805
+T 45500 43300 5 10 1 1 180 0 1
+refdes=R6
+T 45400 43000 5 10 1 1 180 0 1
+value=47k
+}
+C 46400 41500 1 0 0 gnd-1.sym
+N 44800 42600 46000 42600 4
+{
+T 44800 42600 5 10 1 1 0 0 1
+netname=\_power_rf\_
+}
+C 46000 42800 1 180 1 pmos-sot23-4.sym
+{
+T 46600 42300 5 10 0 0 180 6 1
+device=PMOS_TRANSISTOR
+T 46000 42800 5 10 0 0 180 6 1
+footprint=SOT23
+T 46700 42600 5 10 1 1 180 6 1
+refdes=Q11
+T 46500 42300 5 10 1 1 0 0 1
+value=Si2301
+}
+N 46500 42000 47100 42000 4
+N 46500 41800 47100 41800 4
+N 47100 41600 46600 41600 4
+{
+T 46600 41600 5 10 1 1 0 0 1
+netname=rf_rx
+}
+N 47100 41400 46600 41400 4
+{
+T 46600 41400 5 10 1 1 0 0 1
+netname=rf_tx
+}
+C 43800 47300 1 0 1 nc-right-1.sym
+{
+T 43700 47800 5 10 0 0 0 6 1
+value=NoConnection
+T 43700 48000 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+C 45200 48500 1 0 0 nc-right-1.sym
+{
+T 45300 49000 5 10 0 0 0 0 1
+value=NoConnection
+T 45300 49200 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 46000 45700 1 0 1 nc-right-1.sym
+{
+T 45900 46200 5 10 0 0 0 6 1
+value=NoConnection
+T 45900 46400 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+N 48700 41900 49200 41900 4
+{
+T 48700 41900 5 10 1 1 0 0 1
+netname=ant
+}
+T 46900 46400 9 10 1 0 0 0 2
+GY-GPS has
+on board LDO
+C 47100 40800 1 0 0 HC12-1.sym
+{
+T 48700 42100 5 10 0 0 0 0 1
+device=RF module
+T 48700 42100 5 10 0 0 0 0 1
+footprint=HC12
+T 48400 42100 5 10 1 1 0 6 1
+refdes=U2
+T 47100 40800 5 10 0 0 0 0 1
+value=HC_12_Si4463_module
+}
+N 48700 41600 48700 41300 4
+C 48600 41000 1 0 0 gnd-1.sym
+T 40900 43100 9 10 1 0 0 0 2
+For tracker, do not install R1, Q1, Q2.
+Instead, wire U1:1 to J1:11 or J1:12
+N 46600 45800 46000 45800 4
+C 46300 45200 1 180 0 coil-1.sym
+{
+T 46100 44800 5 10 0 0 180 0 1
+device=COIL
+T 46100 45000 5 10 1 1 180 0 1
+refdes=L2
+T 46100 44600 5 10 0 0 180 0 1
+symversion=0.1
+T 45600 44900 5 10 1 1 0 0 1
+value=FB
+T 46300 45200 5 10 0 0 0 0 1
+footprint=0805
+}
+C 47100 44300 1 0 1 capacitor-v-1.sym
+{
+T 46900 45000 5 10 0 0 0 6 1
+device=CAPACITOR
+T 46600 45000 5 10 1 1 180 6 1
+refdes=C5
+T 46600 44600 5 10 1 1 180 6 1
+value=4.7uF
+T 46800 44500 5 10 0 1 0 6 1
+footprint=0805
+T 46900 45200 5 10 0 0 0 6 1
+symversion=0.1
+}
+N 46300 45200 46600 45200 4
+C 46500 44000 1 0 0 gnd-1.sym
+C 40900 45900 1 0 1 header3-1.sym
+{
+T 39900 46550 5 10 0 0 0 6 1
+device=HEADER3
+T 40500 47200 5 10 1 1 0 6 1
+refdes=J2
+T 40900 45900 5 10 0 1 0 6 1
+footprint=HEADER3_1
+}
+N 46600 41200 47100 41200 4
+{
+T 46600 41200 5 10 1 1 0 0 1
+netname=\_rf_set\_
+}
+T 46100 46800 9 10 1 0 0 0 1
+GPS cable length 33cm
+N 51000 48700 52200 48700 4
+{
+T 51200 48700 5 10 1 1 0 0 1
+netname=\_power_gps\_
+}
+N 51000 48400 52200 48400 4
+{
+T 51200 48400 5 10 1 1 0 0 1
+netname=\_power_rf\_
+}
+N 54300 47800 55500 47800 4
+{
+T 54500 47800 5 10 1 1 0 0 1
+netname=serial_rf
+}
+C 52100 47500 1 0 0 gnd-1.sym
+N 45200 49800 46000 49800 4
+{
+T 45500 49800 5 10 1 1 0 0 1
+netname=scl
+}
+N 54300 49300 55100 49300 4
+{
+T 54600 49300 5 10 1 1 0 0 1
+netname=scl
+}
+N 54300 49600 55100 49600 4
+{
+T 54600 49600 5 10 1 1 0 0 1
+netname=sda
+}
+N 43000 49800 43800 49800 4
+{
+T 43300 49800 5 10 1 1 0 0 1
+netname=sda
+}
+C 54300 48900 1 0 0 nc-right-1.sym
+{
+T 54400 49400 5 10 0 0 0 0 1
+value=NoConnection
+T 54400 49600 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 52900 46000 1 0 0 npn-4.sym
+{
+T 53500 46500 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 53500 46500 5 10 1 1 0 0 1
+refdes=Q2
+T 52900 46000 5 10 0 1 0 0 1
+footprint=SOT23
+T 53400 46300 5 10 1 1 0 0 1
+value=MMUN2213
+}
+N 51700 46500 52900 46500 4
+{
+T 51900 46500 5 10 1 1 0 0 1
+netname=serial_gps
+}
+N 53400 47000 54400 47000 4
+{
+T 53400 47100 5 10 1 1 0 0 1
+netname=mcu_soft_rx
+}
+N 53400 46000 54400 46000 4
+{
+T 53600 46000 5 10 1 1 0 0 1
+netname=gps_tx
+}
+C 52900 44600 1 0 0 npn-4.sym
+{
+T 53500 45100 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 53500 45100 5 10 1 1 0 0 1
+refdes=Q3
+T 52900 44600 5 10 0 1 0 0 1
+footprint=SOT23
+T 53400 44900 5 10 1 1 0 0 1
+value=MMUN2213
+}
+N 51700 45100 52900 45100 4
+{
+T 51900 45100 5 10 1 1 0 0 1
+netname=serial_rf
+}
+N 53400 45600 54400 45600 4
+{
+T 53400 45600 5 10 1 1 0 0 1
+netname=mcu_soft_rx
+}
+N 53400 44600 54400 44600 4
+{
+T 53700 44600 5 10 1 1 0 0 1
+netname=rf_tx
+}
+C 52900 43200 1 0 0 npn-4.sym
+{
+T 53500 43700 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 53500 43700 5 10 1 1 0 0 1
+refdes=Q4
+T 52900 43200 5 10 0 1 0 0 1
+footprint=SOT23
+T 53400 43500 5 10 1 1 0 0 1
+value=MMUN2213
+}
+N 51700 43700 52900 43700 4
+{
+T 51900 43700 5 10 1 1 0 0 1
+netname=serial_rf
+}
+N 53400 44200 54400 44200 4
+{
+T 53700 44200 5 10 1 1 0 0 1
+netname=rf_rx
+}
+N 53400 43200 54400 43200 4
+{
+T 53400 43200 5 10 1 1 0 0 1
+netname=mcu_soft_tx
+}
+C 54100 49900 1 0 0 3.3V-plus-1.sym
+C 46300 42800 1 0 0 3.3V-plus-1.sym
+C 43400 40500 1 90 0 ldo-sot23-4.sym
+{
+T 42100 42100 5 10 0 0 90 0 1
+device=LDOsot23
+T 41780 42100 5 10 0 0 90 0 1
+footprint=SOT23
+T 42800 41900 5 10 1 1 0 6 1
+refdes=U4
+T 42100 42100 5 10 1 1 0 0 1
+value=XC6206-332
+}
+C 43300 40700 1 0 0 gnd-1.sym
+N 42200 41600 42200 41300 4
+C 40900 40700 1 0 0 capacitor-v-1.sym
+{
+T 41100 41400 5 10 0 0 0 0 1
+device=CAPACITOR
+T 41200 40900 5 10 0 1 0 0 1
+footprint=0805
+T 41100 41600 5 10 0 0 0 0 1
+symversion=0.1
+T 41300 41500 5 10 1 1 180 0 1
+refdes=C2
+T 41200 41000 5 10 1 1 180 0 1
+value=1uF
+}
+C 41300 40400 1 0 0 gnd-1.sym
+C 43400 41600 1 0 0 3.3V-plus-1.sym
+C 43900 40700 1 0 0 capacitor-v-1.sym
+{
+T 44100 41400 5 10 0 0 0 0 1
+device=CAPACITOR
+T 44200 40900 5 10 0 1 0 0 1
+footprint=0805
+T 44100 41600 5 10 0 0 0 0 1
+symversion=0.1
+T 44300 41500 5 10 1 1 180 0 1
+refdes=C3
+T 44000 40800 5 10 1 1 0 0 1
+value=1uF
+}
+C 44300 40400 1 0 0 gnd-1.sym
+N 42200 41600 40500 41600 4
+N 43400 41600 44400 41600 4
+C 40500 41600 1 0 0 5V-plus-1.sym
+C 52900 41900 1 0 0 npn-4.sym
+{
+T 53500 42400 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 53500 42400 5 10 1 1 0 0 1
+refdes=Q5
+T 52900 41900 5 10 0 1 0 0 1
+footprint=SOT23
+T 53400 42200 5 10 1 1 0 0 1
+value=MMUN2213
+}
+N 51700 42400 52900 42400 4
+N 53400 42900 54400 42900 4
+{
+T 53400 42900 5 10 1 1 0 0 1
+netname=mcu_soft_tx
+}
+N 53400 41900 54400 41900 4
+{
+T 53700 41900 5 10 1 1 0 0 1
+netname=cmd_tx
+}
+C 51500 42400 1 0 0 3.3V-plus-1.sym
+N 46500 47800 47200 47800 4
+{
+T 46500 47800 5 10 1 1 0 0 1
+netname=mcu_soft_rx
+}
+C 46400 47800 1 0 0 resistor-v-1.sym
+{
+T 46700 48200 5 10 0 0 0 0 1
+device=RESISTOR
+T 46700 48000 5 10 0 1 0 0 1
+footprint=0805
+T 46700 48500 5 10 1 1 180 0 1
+refdes=R5
+T 46600 48200 5 10 1 1 180 0 1
+value=4k7
+}
+C 46700 48700 1 0 0 3.3V-plus-1.sym
+N 41800 46900 42500 46900 4
+{
+T 41800 46900 5 10 1 1 0 0 1
+netname=cmd_tx
+}
+N 52200 49900 52200 49300 4
+C 51900 49400 1 270 0 gnd-1.sym
+C 52200 48000 1 0 1 nc-right-1.sym
+{
+T 52100 48500 5 10 0 0 0 6 1
+value=NoConnection
+T 52100 48700 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+N 54300 48400 55500 48400 4
+{
+T 54500 48400 5 10 1 1 0 0 1
+netname=\_rf_set\_
+}
+C 52200 47500 1 0 0 PCF8574.sym
+{
+T 54200 50075 5 10 0 0 0 0 1
+device=PCF8574
+T 54200 50075 5 10 0 0 0 0 1
+footprint=SO16W
+T 54000 50300 5 10 1 1 0 6 1
+refdes=U3
+T 52200 47500 5 10 0 1 0 0 1
+value=PCF8574
+}
+C 46500 46300 1 180 1 gy-neo6mv2.sym
+{
+T 47400 46200 5 8 0 1 180 6 1
+footprint=GY_NEO6MV2_5PINS_1
+T 48100 45000 5 10 0 0 180 6 1
+device=GPS module
+T 47600 44800 5 10 1 1 180 0 1
+refdes=U1
+T 46500 46300 5 10 0 0 0 0 1
+value=GY_NEO6MV2_5_pin_module_red
+}
+C 46000 45900 1 0 1 nc-right-1.sym
+{
+T 45900 46400 5 10 0 0 0 6 1
+value=NoConnection
+T 45900 46600 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+N 46600 46000 46000 46000 4
+C 54300 48600 1 0 0 nc-right-1.sym
+{
+T 54400 49100 5 10 0 0 0 0 1
+value=NoConnection
+T 54400 49300 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 52200 48900 1 0 1 nc-right-1.sym
+{
+T 52100 49400 5 10 0 0 0 6 1
+value=NoConnection
+T 52100 49600 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+C 43800 50900 1 0 1 nc-right-1.sym
+{
+T 43700 51400 5 10 0 0 0 6 1
+value=NoConnection
+T 43700 51600 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+C 43800 50500 1 0 1 nc-right-1.sym
+{
+T 43700 51000 5 10 0 0 0 6 1
+value=NoConnection
+T 43700 51200 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+C 43800 50100 1 0 1 nc-right-1.sym
+{
+T 43700 50600 5 10 0 0 0 6 1
+value=NoConnection
+T 43700 50800 5 10 0 0 0 6 1
+device=DRC_Directive
+}
+C 45200 50100 1 0 0 nc-right-1.sym
+{
+T 45300 50600 5 10 0 0 0 0 1
+value=NoConnection
+T 45300 50800 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 45200 50500 1 0 0 nc-right-1.sym
+{
+T 45300 51000 5 10 0 0 0 0 1
+value=NoConnection
+T 45300 51200 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+N 48000 47800 48700 47800 4
+{
+T 48000 47800 5 10 1 1 0 0 1
+netname=mcu_soft_tx
+}
+C 47900 47800 1 0 0 resistor-v-1.sym
+{
+T 48200 48200 5 10 0 0 0 0 1
+device=RESISTOR
+T 48200 48000 5 10 0 1 0 0 1
+footprint=0805
+T 48200 48500 5 10 1 1 180 0 1
+refdes=R7
+T 48100 48200 5 10 1 1 180 0 1
+value=4k7
+}
+C 48200 48700 1 0 0 3.3V-plus-1.sym
+N 54300 48100 55500 48100 4
+{
+T 54500 48100 5 10 1 1 0 0 1
+netname=serial_gps
+}
+C 45500 43500 1 0 0 3.3V-plus-1.sym
+C 42800 44400 1 0 0 npn-4.sym
+{
+T 43400 44900 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 43400 44900 5 10 1 1 0 0 1
+refdes=Q6
+T 42800 44400 5 10 0 1 0 0 1
+footprint=SOT23
+T 43300 44700 5 10 1 1 0 0 1
+value=MMUN2213
+}
+N 41900 44400 43300 44400 4
+{
+T 41900 44400 5 10 1 1 0 0 1
+netname=\_power_gps\_
+}
+N 44100 45400 43300 45400 4
+C 42600 44900 1 0 0 3.3V-plus-1.sym
+T 49400 40400 9 10 1 0 0 0 1
+neo6m-hc12.sch
+T 49300 41100 9 10 1 0 0 0 1
+Forward bulkhead RF module board (GPS, RF modem)
+C 47400 50000 1 0 0 aerial.sym
+{
+T 47400 50000 5 10 0 1 0 0 1
+footprint=none
+T 47700 50200 5 10 1 1 0 0 1
+value=434MHz_spring_od4.5x26
+T 47400 50000 5 10 0 0 0 0 1
+device=434MHz_spring_antenna
+}
+C 47400 50800 1 0 0 aerial.sym
+{
+T 47400 50800 5 10 0 1 0 0 1
+footprint=none
+T 47700 51000 5 10 1 1 0 0 1
+value=GPS_active_antenna_6x20x6mm
+T 47400 50800 5 10 0 0 0 0 1
+device=GPS_active_antenna_6x20x6mm
+}
+T 47200 49500 9 10 1 0 0 0 2
+Note: 434MHz spring antenna OD is critical!
+Common model is OD5.5mm; DOES NOT FIT.
+C 48100 50700 1 0 1 con-coaxial.sym
+{
+T 48100 50700 5 10 0 0 0 0 1
+footprint=none
+T 48100 50700 5 10 1 1 0 0 1
+value=33cm_IPX_cable_connector
+}
+N 47800 50800 47600 50800 4
+C 48100 49900 1 0 1 con-coaxial.sym
+{
+T 48100 49900 5 10 0 0 0 0 1
+footprint=none
+T 48100 49900 5 10 1 1 0 0 1
+value=37cm_IPX_cable_connector
+}
+N 47800 50000 47600 50000 4

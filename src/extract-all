@@ -1,0 +1,42 @@
+#!/bin/sh
+# Given logfile, extract the time stamp and ALL columns.
+
+die () { echo $* >&2; exit 1; }
+
+infile=$1
+
+if [ "$infile" = "" ]; then
+  die "Usage: $0 infile"
+fi
+
+# Remove all values in attributes, then remove all words not
+# ending in =.
+variables=`
+sed -e 's/=[^ ]*\>/= /g' \
+    -e 's/[^ =]* //ig' \
+    -e 's/[^ =]*$//ig' <$infile | tr '=' '\n' |sort -u |grep -v '^$'`
+
+shift
+basename=`echo $infile |sed 's/\.[^.]*$//'`
+suffix=`echo $infile |sed 's/.*\.\([^.]*\)$/\1/'`
+echo $basename $suffix
+
+mkdir -p $basename
+for name in $variables; do
+  newname="${basename}/${name}.$suffix"
+  grep " ${name}=" <$infile |
+# line 1: extract relevant field
+# line 2: change 1st field (hex time stamp) fraction to 2 hex numbers
+  sed \
+  -e 's/ .*'$name'=\([^ ]*\).*/ \1/' \
+  -e 's/\./ 0x/' |
+  while read line; do
+    printf "%d.%02d %s\n" $line
+  done >$newname
+done
+
+# Copy the logfile, but with time stamps in decimal.
+sed -e 's/\./ 0x/' <$infile |
+while read a b line; do
+    printf "%d.%02d %s\n" $a $b "$line"
+done >$basename/$basename.$suffix

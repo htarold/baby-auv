@@ -1,0 +1,5 @@
+Mission behaviours:
+Must parse a mission script.
+int8_t waypoint(nav_pt, depth);
+int8_t update_gps();
+int8_t hover(depth);

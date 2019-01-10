@@ -1,0 +1,52 @@
+#!/bin/sh
+# Show .c deps and/or .h deps.
+
+suffixes=''
+while : ; do
+  if [ "$1" = ".c" -o "$1" = ".h" ] ; then
+    suffixes="$suffixes $1"
+    shift
+  else
+    break
+  fi
+done
+
+basefn=$1
+
+todo=./todo.$$
+done=./done.$$
+tmp=./tmp.$$
+
+>$done
+
+for i; do
+  echo $i
+done >$todo
+
+# Not all .h files have a corresponding .c file
+
+while : ; do
+  f=`tail -1 $todo`
+  [ "" = "$f" ] && break;
+  if ! grep '^'$f'$' $done >/dev/null; then
+    echo $f >>$done
+    if [ -e $f.c ] ; then
+      sed -n 's/^# *include *"\([^.]*\)\.h".*$/\1/p' <$f.c >>$todo
+    else
+      echo "$0:WARNING: $f.c does not exist" >&2
+    fi
+  fi
+  grep -v '^'$f'$' $todo >$tmp; mv $tmp $todo
+done
+
+while read f; do
+  for s in $suffixes; do
+    if [ -f "${f}${s}" ]; then
+      echo "${f}${s}"
+      #echo "${f}${s}" >&2
+    fi
+  done
+done <$done
+#cfiles=`while read f; do [ -f $f.c ] && echo $f.c; done <$done`
+
+rm -f $done $todo $tmp

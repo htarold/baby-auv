@@ -1,0 +1,64 @@
+
+Sun Mar  2 08:51:17 SGT 2014
+Thu Aug  6 10:28:39 SGT 2015
+Tue Jan  5 11:29:56 SGT 2016
+
+For use with ATmegas, in particular 328p ("arduinos").
+
+Use soft UART for GPS?  Rx only.
+Pin assignment:           Arduino Pro Mini:
+motor1     PB0            8  (reverse)
+motor2     PB1/OC1A       9  (forwards)
+ppm        PB2/OC1B       10  Requires pullup, ensures SPI is master
+MOSI       PB3/OC2A       11 SD card
+MISO       PB4            12 SD card
+SCK        PB5            13 SD card
+CS         PC0            A0 SD card
+           PC1/ADC1       A1
+vbat ADC   PC2/ADC2       A2
+ibat ADC   PC3/ADC3       A3
+SDA        PC4            Non standard
+SCL        PC5            Non standard
+(reset)    PC6            Reset
+Rxd        PD0/RXD        RXD
+Txd        PD1/TXD        TXD
+GPS_rx     PD2/INT0       2
+Buzzer     PD3/INT1/OC2B  3
+encoder    PD4/PCINT20    4
+cond. exc. PD5/OC0B       5
+           PD6/OC0A/AIN0  6
+           PD7/AIN1       7
+depth      i2c            i2c
+cond. cell i2c            i2c
+XXX Wireless enable: turn on/off 5V power to front bulkhead.
+XXX Servo enable: turn on/off 5V power to servo.
+Depth enable: always enabled
+
+Sun Nov 27 11:34:36 SGT 2016
+pf-mcu:
+
+motor1     PB0            8  (reverse)
+motor2     PB1/OC1A       9  (forwards)
+ppm        PB2/OC1B       10  Requires pullup, ensures SPI is master
+MOSI       PB3/OC2A       11 SD card
+MISO       PB4            12 SD card
+SCK        PB5            13 SD card
+CS         PC0            A0 SD card
+accel_int1 PC1/ADC1       A1
+gp_a2      PC2/ADC2       A2
+gp_a3      PC3/ADC3       A3
+SDA        PC4            Non standard
+SCL        PC5            Non standard
+(reset)    PC6            Reset
+adc_ibat   ADC6
+adc_vbat   ADC7
+Rxd        PD0/RXD        RXD
+Txd        PD1/TXD        TXD
+GPS_rx     PD2/INT0       2
+Buzzer     PD3/INT1/OC2B  3
+encoder    PD4/PCINT20    4
+cond. exc. PD5/OC0B       5
+rf_enable  PD6/OC0A/AIN0  6
+debug_out  PD7/AIN1       7
+depth      i2c            i2c
+cond. cell i2c            i2c

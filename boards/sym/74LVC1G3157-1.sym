@@ -1,0 +1,78 @@
+v 20130925 2
+T 300 1200 9 10 1 0 0 0 1
+74LVC1G3157
+T 900 100 9 8 0 1 0 0 1
+footprint=SC70_6
+B 400 300 1000 800 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+T 1600 1300 5 10 0 0 0 0 1
+device=SPDT analogue switch
+T 1000 1600 8 10 1 1 180 0 1
+refdes=U?
+T 1600 1100 5 10 0 0 0 0 1
+pins=3
+P 100 1000 400 1000 1 0 0
+{
+T 200 1000 5 10 0 1 0 6 1
+pintype=unknown
+T 455 895 5 10 1 1 0 0 1
+pinlabel=B2
+T 305 1045 5 10 1 1 0 6 1
+pinnumber=1
+T 200 1000 5 10 0 0 0 6 1
+pinseq=1
+}
+P 100 700 400 700 1 0 0
+{
+T 200 700 5 10 0 0 0 6 1
+pintype=unknown
+T 455 695 5 10 1 1 0 0 1
+pinlabel=Gnd
+T 305 745 5 10 1 1 0 6 1
+pinnumber=2
+T 200 700 5 10 0 0 0 6 1
+pinseq=2
+}
+P 100 400 400 400 1 0 0
+{
+T 200 400 5 10 0 0 0 6 1
+pintype=unknown
+T 455 395 5 10 1 1 0 0 1
+pinlabel=B1
+T 305 445 5 10 1 1 0 6 1
+pinnumber=3
+T 200 400 5 10 0 0 0 6 1
+pinseq=3
+}
+P 1700 400 1400 400 1 0 0
+{
+T 1600 400 5 10 0 0 180 6 1
+pintype=unknown
+T 1345 395 5 10 1 1 0 6 1
+pinlabel=A
+T 1495 445 5 10 1 1 0 0 1
+pinnumber=4
+T 1600 400 5 10 0 0 180 6 1
+pinseq=4
+}
+P 1700 700 1400 700 1 0 0
+{
+T 1600 700 5 10 0 0 180 6 1
+pintype=unknown
+T 1345 695 5 10 1 1 0 6 1
+pinlabel=Vcc
+T 1495 745 5 10 1 1 0 0 1
+pinnumber=5
+T 1600 700 5 10 0 0 180 6 1
+pinseq=5
+}
+P 1700 1000 1400 1000 1 0 0
+{
+T 1600 1000 5 10 0 0 180 6 1
+pintype=unknown
+T 1600 1000 5 10 0 0 180 6 1
+pinseq=6
+T 1345 895 5 10 1 1 0 6 1
+pinlabel=S
+T 1495 1045 5 10 1 1 0 0 1
+pinnumber=6
+}

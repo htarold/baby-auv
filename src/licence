@@ -1,0 +1,22 @@
+#!/bin/sh
+
+gpl () {
+  echo "/* (C) 2019 Harold Tay GPLv3 */" >tmp
+  cat $1 >>tmp
+  mv tmp $1
+}
+
+lgpl () {
+  echo "/* (C) 2019 Harold Tay LGPLv3 */" >tmp
+  cat $1 >>tmp
+  mv tmp $1
+}
+
+files=`ls *.c *.h`
+for f in $files; do
+  case "$f" in
+  test_*) gpl "$f" ;;
+  tasks_*) gpl "$f" ;;
+  *) lgpl "$f";;
+  esac
+done

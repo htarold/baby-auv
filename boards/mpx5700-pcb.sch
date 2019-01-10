@@ -1,0 +1,112 @@
+v 20130925 2
+C 40000 40000 0 0 0 title-A4.sym
+C 47500 43100 1 0 0 mpx5700-1.sym
+{
+T 47500 44700 5 10 0 1 0 0 1
+device=MPX5700AP Pressure sensor
+T 47500 44700 5 10 0 1 0 0 1
+footprint=MPX5700xP_2
+T 47900 45600 5 10 1 1 0 0 1
+refdes=U1
+T 47500 43100 5 10 0 0 0 0 1
+value=MPX5700AP pressure sensor
+}
+C 47200 44300 1 0 1 header3-1.sym
+{
+T 46200 44950 5 10 0 0 0 6 1
+device=HEADER3
+T 46800 45600 5 10 1 1 0 6 1
+refdes=J1
+T 47200 44300 5 10 0 0 0 0 1
+footprint=HEADER3_1
+T 47200 44300 5 10 0 0 0 0 1
+value=header3
+}
+N 47200 45300 47500 45300 4
+{
+T 47200 45300 5 10 1 1 0 0 1
+netname=vout
+}
+N 46200 44900 47500 44900 4
+N 47200 44500 47500 44500 4
+{
+T 47200 44500 5 10 1 1 0 0 1
+netname=vcc
+}
+C 47000 44000 1 0 0 nc-left-1.sym
+{
+T 47000 44400 5 10 0 0 0 0 1
+value=NoConnection
+T 47000 44800 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 47000 43600 1 0 0 nc-left-1.sym
+{
+T 47000 44000 5 10 0 0 0 0 1
+value=NoConnection
+T 47000 44400 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 47000 43200 1 0 0 nc-left-1.sym
+{
+T 47000 43600 5 10 0 0 0 0 1
+value=NoConnection
+T 47000 44000 5 10 0 0 0 0 1
+device=DRC_Directive
+}
+C 43200 45600 1 0 0 capacitor-v-1.sym
+{
+T 43400 46300 5 10 0 0 0 0 1
+device=CAPACITOR
+T 43600 46400 5 10 1 1 180 0 1
+refdes=C1
+T 43500 45900 5 10 1 1 180 0 1
+value=100p
+T 43500 45800 5 10 0 1 0 0 1
+footprint=0805
+T 43400 46500 5 10 0 0 0 0 1
+symversion=0.1
+}
+C 46100 44600 1 0 0 gnd-1.sym
+C 43900 45600 1 0 0 capacitor-v-1.sym
+{
+T 44100 46300 5 10 0 0 0 0 1
+device=CAPACITOR
+T 44300 46400 5 10 1 1 180 0 1
+refdes=C2
+T 44200 45900 5 10 1 1 180 0 1
+value=10n
+T 44200 45800 5 10 0 1 0 0 1
+footprint=0805
+T 44100 46500 5 10 0 0 0 0 1
+symversion=0.1
+}
+C 44600 45600 1 0 0 capacitor-v-1.sym
+{
+T 44800 46300 5 10 0 0 0 0 1
+device=CAPACITOR
+T 45000 46400 5 10 1 1 180 0 1
+refdes=C3
+T 44900 45900 5 10 1 1 180 0 1
+value=1uf
+T 44900 45800 5 10 0 1 0 0 1
+footprint=0805
+T 44800 46500 5 10 0 0 0 0 1
+symversion=0.1
+}
+C 43600 45300 1 0 0 gnd-1.sym
+N 45100 45600 43700 45600 4
+N 44400 46500 45500 46500 4
+{
+T 44400 46500 5 10 1 1 0 0 1
+netname=vcc
+}
+N 43700 46500 43200 46500 4
+{
+T 43700 46500 5 10 1 1 0 0 1
+netname=vout
+}
+T 44700 40300 9 10 1 0 0 0 1
+mpx5700-pcb.sch
+T 44500 41000 9 10 1 0 0 0 1
+mpx5700 depth sensor carrier board

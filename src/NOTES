@@ -1,0 +1,97 @@
+
+Wed Aug 26 19:37:47 SGT 2015
+
+Thruster PWM can hitchhike on any timer, so is not a concern.
+
+Option 1: use timer1 for ppm and for uptime clock.
+F_CPU is 8MHz.  Prescaler is /8, TOP is 20,000 (20ms).
+ISR updates uptime clock every 20ms, and also sets the ppm
+value.
+
+Wed Aug 26 20:25:40 SGT 2015
+
+SD card?  Should allow any other MCU (belonging to another
+sensor for example) to log to card.  This suggests a separate
+standalone MCU.  However we would like to READ the SD card on
+startup also, to get our instructions.  That suggests the main
+MCU should be in charge of the SD card.
+
+If the main MCU is in charge of the SD card, then how to allow
+orderly access to it?  We may have some free pins, twi? spi?
+how?  Packetised?
+
+Main MCU should broadcast vehicle state?  Over serial?
+
+Broadcast only when at a mission point?
+
+Logging MCU scenario
+--------------------
+Logger has multiple serial receivers, only 1 serial output.
+How to serialise data?  Poll each sensor: float each pin high in
+turn.  If a sensor has data, it pulls the pin low.  As long as
+the pin is low, it can write.  If the pin is already low, then
+it cannot write.
+
+Sat Aug 29 17:24:32 SGT 2015.
+
+Positioning
+-----------
+GPS uses decimal minutes.
+1 minute is about 1.85 km, 1 nautical mile.
+1/256 of a minute is about 7.2m, which is appropriate
+resolution.
+1/1000 of a minute is also appropriate (milliminutes?)
+21.6 million milliminutes.
+32 bits is appropriate for this.
+Tue Sep 22 17:52:52 SGT 2015
+More on positioning:
+1 mmn is 1.85m.
+Normal GPS output has resolution 0.0001 minutes, or 0.18m
+If we divide a circle into 2^26 parts, then 1 part is 0.596m,
+which is good.
+It is expecially convenient for arithmetic since we can just
+mask off the upper 6 bits of a 32-bit value after every operation.
+
+Tue Sep 22 19:01:50 SGT 2015
+TODO: buzzer function?
+
+Tue Oct 13 15:31:08 SGT 2015
+
+Servo MG946R takes over 1A when buzzing.  Turn it off when not in use?
+Requires another GPIO.
+
+Using HK15138 servo, current draw is about 300-400mA at max, but
+servo is not stiff at all.  This may make it unsuitable for use.
+Also the shaft is plastic, not metal.  Rated at 4.3kg-cm, which
+might be enough.
+
+Sun Jul 10 16:54:42 SGT 2016
+
+Logging: how to log changes in thruster and mma settings, which
+can happen in an ISR.
+
+At the moment, thruster settings are logged by sense() when
+called.  But if it isn't called, then changes to thruster
+settings will be lost.
+
+- Call a housekeeping function periodically?
+- Thruster routines can check the I bit: if cleared, it is
+running inside an ISR and must not log.  Then the caller who set
+up that ISR is responsible for logging.
+
+Thu Jul 14 17:02:33 SGT 2016
+SD card code recipe:
+http://electronics.stackexchange.com/questions/77417/what-is-the-correct-command-sequence-for-microsd-card-initialization-in-spi
+
+Fri Jul 15 16:30:08 SGT 2016
+It should be ok to only swop sectors at the entry points: e.g.
+at entry to logg(), make sure it owns the sector.  If not, sync
+and take it back.
+
+Bug: sd_bread() returns data that does not exist on the card.
+There is a fault in sd() somewhere.
+
+Wed Jul 27 16:47:56 SGT 2016
+Instead of making a circular buffer for queueing outgoing data,
+why not use a regular file?  Most of the code for logging can be
+used.  Only code to unlink sent data from the head.

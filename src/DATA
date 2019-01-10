@@ -1,0 +1,170 @@
+Wed Feb  1 20:25:38 SGT 2017
+
+All multi-byte fields are little endian.
+
+struct datum {
+  uint32_t reftime;      /* UTC, seconds relative to 2017 */
+  uint16_t block_number; /* Starts at 0, increments every block */
+  uint8_t version;       /* contains a magic */
+  uint8_t auv_id;        /* ... */
+  int16_t celsius;       /* degrees/64 */
+  uint16_t depth;        /* metres/8 */
+  uint16_t conductivity;
+  uint16_t paramx;
+  uint16_t paramy;
+  uint16_t paramz;
+  int16_t revs;          /* XXX not using RPM */
+  uint8_t heading;
+  int8_t pitch;
+};  /* 24 bytes */
+
+struct position {
+  uint8_t zero;
+  uint8_t magic;
+  nav_pt position;       /* Empty if no GPS fix */
+};  /* 10 bytes */
+
+struct relative {
+  uint8_t dtime;
+  int8_t dcelsius;
+  int8_t ddepth;
+  int8_t dconductivity;
+  int8_t dparamx;
+  int8_t dparamy;
+  int8_t dparamz;
+  int8_t revs;           /* -ve means restart count from 0 */
+  uint8_t heading;
+  int8_t pitch;
+};  /* 10 bytes */
+
+Structure on disk
+-----------------
+Data are stored on disk in this structure:
+struct data_packet {
+  uint8_t magic;                      /* is 0xa5 */
+  uint8_t node_id;                    /* ID of the sending node */
+  uint8_t packet_type;                /* is 1 for this structure */
+  uint8_t length;                     /* not used for type 1 packet */
+  uint16_t degree;                    /* see section on encoding */
+  uint16_t sequence;
+  uint16_t current_count;
+  struct payload {
+    struct datum datum;
+    struct relative relatives[22];
+  } payload; /* 244 bytes */
+  uint16_t crc;
+};
+
+Only the payload structure needs to be filled.  The outer fields
+are filled in by the transmission code, and can be 0 on disk.
+
+2 of such structures fit in a disk sector (512 bytes).
+
+How to encode
+-------------
+For encoding, a data_packet structure is considered a block, and
+there are 2 blocks per sector, even though only the contents of
+the payload structure are XORed.  The rest of the data_packet
+structure is zero bytes.
+
+The current total number of (complete) blocks accumulated at the
+time of the current transmission is N (data_packet.current_count).
+A degree D (1<=D<=N) is determined at random from a particular
+distribution (using a table) (D is data_packet.degree).
+An ever-increasing sequence number S is maintained (S is
+data_packet.sequence).  D blocks (out of N possible) are selected
+from a lookup table (uniform distribution) starting at position S.
+
+A separate 256-byte buffer can be used to construct the packet
+to transmit, or it can be constructed on disk*.
+
+Assume a separate buffer is used: first determine D from a
+table and fill in data_packet.degree with this value.
+
+Currently there are N packets, fill in data_packet.current_count
+with N.
+
+Fill in data_packet.sequence with the current S value.
+
+Until D blocks have been XORed into the buffer:
+  get a value from the PRNG.
+  Increment S.
+  Mask off the higher bits to get an appropriately smaller
+  number.
+  If this number is less than N, XOR this block into the buffer.
+  If the number is larger than N, discard the number, increment
+  S, and get another.  Repeat as necessary.
+  Repeat.
+
+Calculate the CRC value and fill in data_packet.crc.  The crc
+value is everything in the data packet except for the crc value
+itself and any padding after it.
+
+CRC is taken from avr-libc, util/crc16.h, function _crc_xmodem_update().
+
+Use the power-of-2 that is greater than or equal to N, to mask
+off the values.
+
+Volume of data
+--------------
+Assuming 1 reading every 5 seconds, then each
+block (of 22 relatives, conservatively) is 110 seconds for 256
+bytes.  24 hours is 785 blocks or 196k.  At 2400BPS, this is 837
+seconds or 14 minutes.  Likely will need to transmit several
+times this amount.  If we transmit 1 hour every 24, it costs
+200mA&3.3V = 0.66WH every 24 hours.  We carry 100WH of energy.
+
+Description of structures
+-------------------------
+The fields in a datum structure are self explanatory.
+
+If the byte immediately after the datum is 0, AND the next byte
+is the magic, it is a position structure.
+
+If the bytes are 0 followed by 0, it is not in use.
+
+Otherwise (non-zero followed by anything), it is a relative
+structure.
+
+In each relative structure, for most parameters, only the change of
+the parameter is recorded, to save space.  E.g. if the temperature
+has decreased by 0.25 degrees from the previous relative, then dcelsius
+will be -16.
+
+But for heading and pitch the value is absolute.
+
+The datum contains valid data, just like a relative struct (only
+in long form), and it contains other datum data also.
+
+If the dtime field in a relative struct is 0, it is not a relative
+struct.
+
+If any field in a relative struct has changed so much that the
+difference would overflow the field width, then a continuation
+relative can be used:
+  1:the pitch field is set to 127.
+  2:each d-field contains the MSB; the LSB is in the corresponding
+    d-field of the NEXT (continuation) relative.  This includes the
+    dtime field.  For pitch and heading, the continuation
+    relative holds the correct values.
+  3:If the overflowing relative is the ultimate relative in the
+    block, then a continuation relative cannot be used.  Instead,
+    the block is terminated early and a new block started.
+
+Whenever a GPS fix is obtained, a new block can be started so
+that the fix can be recorded.  The old block is left partially
+filled, it is not necessary that it be filled.
+
+Thu 19 Oct 11:37:18 SGT 2017
+Using HC12 under FU3 mode, 2400bps, dropped bytes and bad bytes
+are possible with transmitted blocks of 256 or 128 bytes.  It is
+not the case that only entire blocks are dropped.
+
+This means a method of error correction must be used.
+
+Fri 24 Nov 07:11:37 +08 2017
+
+It may be feasible to modify the low level sd2 code to XOR directly
+into a buffer, i.e. XOR entire sectors as they are read into the
+secotr buffer.  This need not cost many cycles with proper
+scheduling, because a lot of time is already spent spin waiting.

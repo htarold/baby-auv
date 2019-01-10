@@ -1,0 +1,49 @@
+v 20130925 2
+T 400 550 9 8 1 0 0 0 1
+XC6206 (1uF)
+B 300 300 1000 600 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+T 1600 1300 8 10 0 0 0 0 1
+device=LDOsot23
+P 1100 300 1100 0 1 0 1
+{
+T 995 250 5 8 1 1 180 6 1
+pinnumber=2
+T 1400 100 5 8 0 0 90 0 1
+pinseq=2
+T 1245 450 9 8 1 1 180 0 1
+pinlabel=Vout
+T 1250 100 5 10 0 1 90 0 1
+pintype=pwr
+}
+T 1300 900 8 10 1 1 180 6 1
+refdes=U?
+T 1600 1100 8 10 0 0 0 0 1
+pins=3
+T 1600 1470 8 10 0 0 0 0 1
+numslots=0
+T 1600 1620 8 10 0 0 0 0 1
+footprint=SOT23
+T 1600 1820 8 10 0 0 0 0 1
+description=SOT23 LDO NOTE PINOUT!
+T 1600 1970 8 10 0 0 0 0 1
+documentation=
+P 500 0 500 300 1 0 0
+{
+T 500 0 5 10 0 0 0 0 1
+pintype=pwr
+T 620 475 5 10 1 1 180 0 1
+pinlabel=Gnd
+T 395 250 5 10 1 1 180 6 1
+pinnumber=1
+T 500 0 5 10 0 0 0 0 1
+pinseq=1
+}
+P 800 1200 800 900 1 0 0
+{
+T 705 1050 5 8 1 1 180 0 1
+pinnumber=3
+T -250 1150 5 8 0 0 180 0 1
+pinseq=3
+T 655 850 9 8 1 1 180 6 1
+pinlabel=Vin
+}

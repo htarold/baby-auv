@@ -1,0 +1,188 @@
+
+Tue 24 Oct 14:03:19 SGT 2017
+Fri 27 Oct 17:36:01 SGT 2017
+Thu 22 Feb 16:03:28 +08 2018
+
+Overview
+--------
+There are 3 tasks, idle, foreground, and background.  These are
+described as tasks[3] in yield.c, which also contains main().
+
+All tasks are called in round robin fashion.  A new cycle is
+started every 10 ms.  Tasks cannot die, and have only 1 state
+(running).
+
+Tasks call yield() to yield the processor.  This has the effect of
+inducing a 10ms delay (approx), from the point of view of that task.
+
+When main is entered, it sets up the stacks for all tasks, and ends
+up being the idle task soaks up any extra time so that each cycle
+is 10 ms.  (Nothing bad happens if a task takes up more than 10ms,
+but keeping to 10ms is a convention that helps timing).
+
+The background task mostly reads various sensors periodically
+without intervention.
+
+The foreground task is where mission logic takes place.
+
+TODO:
+Mission task (twirl controller only).
+Data return.
+RF task: either does GPS or RF modem.
+
+Software architecture.
+
+Each module may be hosted by a task (thread, runs concurrently
+with other threads).  In addition to the optional task, modules
+also have functions that are executed synchronously.
+
+The round robin scheduler goes around every 10ms, so a task
+_should_ complete in a couple of ms in order to give time to other
+tasks.  However no great harm occurs if a task goes over time.
+Functions called by a task _should_ return very quickly.
+
+If a cycle completes within 10ms, the excess time is spent
+sleeping.
+
+The scheduler is round robin.  All tasks are executed in
+sequence and all tasks are always runnable.  A task cannot
+sleep, and cannot end.  If a task has nothing to do, it
+calls yield() to yield the processor.
+
+The scheduler is cooperative (not preemptive).  Tasks must call
+yield() to allow the next task to run.  Since tasks never
+preempt each other, variables
+shared between tasks do not need to run with interrupts off.
+Interrupts are always on (and must be always on).  However,
+access to variables shared with _ISRs_ may need to be protected
+as usual.
+
+Calling yield() is a simple way to delay.
+
+ISRs are used to ease scheduling.
+
+Tasks are listed in tasks.h.  These are the possible tasks:
+
+Monitor
+-------
+Found in main.c.
+Responsible for sleeping if there is excess time in a cycle.
+
+May also be responsible for monitoring stack usage during
+debugging.
+
+Mission
+-------
+When given a waypoint message, executes behaviours to travel there.
+Will call tude synchronously.  Vehicle sensors and actuators can
+be commanded and read.
+
+Responsible for turning on/off payload sensors.
+
+Later, can be augmented with hover message, etc.
+
+Holds the RF lock when under way and not surfaced.
+
+Owns the MMA and thruster.
+
+Navigation is responsible for executing the mission script.
+This consists of:
+default depth record
+waypoint records [payload]
+synchronising records
+diving records
+hover records
+...
+
+Data task
+---------
+Responsible for collecting payload sensor data.  Can query for
+depth and gps and attitude info.
+
+Dead Reckoning
+--------------
+Responsible for maintaining an estimate of current position.
+XXX Owns gps task?
+
+Maintains an idea of current (tide), can provide an estimate
+of the current (for navigation).
+
+Attitude
+--------
+XXX temporary Attitude architecture is described below:
+
+Attitude data is kept in a global memory, together with an
+expiry time.  Attitude is roll/pitch/heading only.  No other
+parameters are involved.
+
+Each call returns synchronously.  If there is existing data that
+is not expired, it is returned.  Otherwise, the IMU is queried
+and that data is given a expiry time.
+
+The expiry time is based on the refresh period, which is set
+on each call.
+
+A fast controller such as twirl will set the refresh period to be
+very short.  This causes tude to query the IMU on every call.
+
+tude will log the data every log period, regardless of
+refresh period.  The log period is fixed.
+
+#if 0
+Attitude
+--------
+Can be commanded to either read continuously (in practice, every
+10ms), or period can be given.  Attitude "owns" all the sensors,
+including payload and GPS.
+
+If continuous, is sufficient to take 1 reading every cycle.
+This is only ever needed for the twirl.
+
+Also controls the payload sensors.  Also responsible for data
+logging.
+
+GPS is automatically engaged when surfaced.  After fix is
+obtained, RF is relinquished (whereupon the RF modem can be used
+by the RF task).
+
+
+Attitude may attempt to reacquire the RF lock after some time.
+#endif
+GPS
+---
+GPS is a separate thread, but is owned entirely by Attitude.
+
+GPS can be queried for GPS time.
+
+This is a task rather than a synchronous call because it takes
+so long.  The synchronous calls ub_position() and ub_datetime()
+merely return the data already obtained by ub_task() (if
+available and not stale).
+
+The task can be commanded to run or stop.  The commanding task
+is responsible for obtaining the selector lock.
+
+RF
+--
+Whenever surfaced, and RF lock can be acquired, may exchange
+data.  After at least some data is exchanged, may relinquish the
+lock if any other task is waiting for it.
+
+Top level?
+---------
+Monitors other tasks.  Executes new mission files if needed.
+
+Locks
+=====
+Resource is locked by a uint8_t.  If zero, a task may lock it by
+setting the lowest bit.
+
+Other tasks may lodge a request for the lock by setting any
+non-zero bit.  When the value becomes equal to that value set,
+the resource then belongs to that task.  To release the
+resource, the task clears the bit it set.
+
+If all bits are now clear, any task may acquire it.
+
+Thus up to 8 tasks may vie for the resource.
+
