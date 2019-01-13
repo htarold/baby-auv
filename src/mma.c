@@ -1,7 +1,6 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Moving mass actuator.
-  mma convention:
   mma_set(-100) means mass moves to the rear, nose goes up.
   mma_set(100) means mass moves to forwards, nose goes down.
  */
@@ -13,7 +12,6 @@
 #include "ppm.h"
 #include "handydefs.h"
 #include "ee.h"
-#include "syslog.h"
 #include "mma.h"
 
 #define REVERSED servo.reversed
@@ -72,11 +70,4 @@ int8_t mma_inc(int8_t delta)
   position = newpos;
   convert_to_us();
   return(rangerr);
-}
-
-void mma_syslog(void)
-{
-  static int8_t old_position = 127;
-  if (old_position == position) return;
-  syslog_attr("mma", old_position = position);
 }
