@@ -1,4 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Not for new binaries, use ctrl.c instead.
+ */
 #include "ee.h"
 #include "pitch.h"
 #include "mma.h"

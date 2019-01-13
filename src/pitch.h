@@ -1,6 +1,11 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef PITCH_H
 #define PITCH_H
+
+/*
+  (C) 2019 Harold Tay LGPLv3
+  This module still used by some test binaries, otherwise pitch
+  functionalist has been subsumed by ctrl.{c,h}.
+ */
 
 extern uint32_t pitch_recently;       /* most recent pitch action */
 extern int8_t pitch_level(void);
