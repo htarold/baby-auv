@@ -1,8 +1,10 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef PPM_H
 #define PPM_H
 
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Pulse position modulation; interface to sevo used for pitch
+  control.  Serves mma.{c,h}.
   MUST use PB2 = OC1B
  */
 #define PPM_BIT  PB2                  /* OC1B */

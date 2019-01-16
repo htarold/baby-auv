@@ -1,7 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef EE_H
 #define EE_H
 /*
+  (C) 2019 Harold Tay LGPLv3
   Anything to deal with EEPROM values are defined here, to
   ensure the same addresses are used across different binaries,
   e.g. a calibration binary will write, the operational binary

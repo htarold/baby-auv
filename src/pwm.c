@@ -1,13 +1,9 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Works the thruster.
   XXX Possible race condition in setting pwm_percent (despite lack of
   volatile): caller can get wrong value of pwm_percent, and
   throw us into reverse.
-
-  XXX There is a problem when the thrust value crosses 0: the pin
-  duty "rolls over" and the direction pin changes.  If not done
-  simultaneously, there can be shoot through.
 
   So if the new thrust level is 0, then shut down the pwm.
  */

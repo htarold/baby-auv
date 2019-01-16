@@ -1,9 +1,9 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef HC12_H
 #define HC12_H
 #include <stdint.h>
 
 /*
+  (C) 2019 Harold Tay LGPLv3
   Basic transmission and reception using HC12.
  */
 

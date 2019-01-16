@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Ublox gps unit (applies to NMEA in general).
 
  */

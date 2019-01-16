@@ -1,9 +1,14 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef IMATHS_H
 #define IMATHS_H
 
 #include <stdint.h>
 
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Basic integer arithmetic.  256 slivs per circle.  Not only is
+  this a convenient resolution, but also corresponds with
+  compass precision.  See source file for attributions.
+ */
 /* Returns in whole degrees */
 extern int16_t iatan2(int16_t y, int16_t x);
 

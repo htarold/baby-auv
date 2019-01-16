@@ -4,8 +4,7 @@
 
 /*
   Change to match your board.  This interface only writes, never
-  reads.
-  User must call i2c_init(), this is not done here.
+  reads.  User must call i2c_init(), this is not done here.
  */
 #define LCD1602_WRADDR 0x4e
 

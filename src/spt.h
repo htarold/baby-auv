@@ -1,8 +1,8 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef SPT_H
 #define SPT_H
 #include "cbuf.h"
 /*
+  (C) 2019 Harold Tay LGPLv3
   Software rx/tx.  Rx must be PD2 (to use INT0).
  */
 

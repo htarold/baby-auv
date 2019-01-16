@@ -1,6 +1,6 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  Interrupt driven serial (uart) output.
+  (C) 2019 Harold Tay LGPLv3
+  serial (uart) output, can be interrupt driven.
  */
 #include <avr/io.h>
 #include <avr/interrupt.h>

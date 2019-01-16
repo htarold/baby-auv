@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Foreground tasks include GPS and RF modem.
   When activated, gets GPS time if not already done; then gets
   GPS position (always), then sends out backlogged data.

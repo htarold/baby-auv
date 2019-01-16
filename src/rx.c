@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   when enabled, ISR reads into circular buffer.  Dispenses from
   buffer byte-by-byte.
  */

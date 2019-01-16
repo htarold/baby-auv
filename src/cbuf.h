@@ -1,7 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef CBUF_H
 #define CBUF_H
 /*
+  (C) 2019 Harold Tay LGPLv3
   Circular buffer.
   XXX Not exactly threadsafe: write pointer can lap read
   pointer.  Safe if read in time.  With tasks running every
@@ -28,7 +28,7 @@ struct name { volatile uint8_t head, tail; volatile char buf[size]; }
   (name.head == (name.tail-1)%sizeof(name.buf))
 
 /*
-  Older interface:
+  Deprecated older interface:
  */
 
 struct cbuf { volatile uint8_t buf[16]; volatile uint8_t head, tail; };

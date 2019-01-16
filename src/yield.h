@@ -1,7 +1,8 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef YIELD_H
 #define YIELD_H
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Multitasking round robin scheduler.
   To be included by all tasks (threads).  Also allows yield()
   to be redefined as a nop to allow standalone testing.
   yield() is defined in main.c.

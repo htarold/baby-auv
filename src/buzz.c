@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Buzz the vibrator (not the piezo buzzer).  Uses PC2 (gp_a2).
  */
 #include <avr/io.h>

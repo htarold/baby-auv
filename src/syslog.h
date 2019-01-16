@@ -1,15 +1,17 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef SYSLOG_H
 #define SYSLOG_H
 #include <stdint.h>
 #include <avr/pgmspace.h>
 
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Log to LOGFILE.TXT, with timestamp, optionally also copy to debug
+  serial output.  In addition if log record contains upper case
+  characters, these are sent to the piezo buzzer in morse code.
+
   End all records with \n.
   Can call syslog_init() again to disable/enable serial output,
   but only between records.
-
-  Wut?
  */
 
 /*

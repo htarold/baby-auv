@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Soft uart port.  PD2(INT0) is used for RX, PD0 (which is the
   hardware uart's RX) is used for TX.  Hardware UART's TXD (PD1) pin
   is not touched.

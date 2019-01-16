@@ -1,6 +1,9 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef PWM_H
 #define PWM_H
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Lower level that serves the thruster.
+ */
 
 #include <stdint.h>
 #include "time.h"

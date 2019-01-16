@@ -1,13 +1,11 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef UB_H
 #define UB_H
 #include <stdint.h>
 #include "nav.h"
 
 /*
-  Caller must get the RF lock before calling
-  ub_task_command(UB_START), and caller must release the lock
-  after calling ub_task_command(UB_STOP).
+  (C) 2019 Harold Tay LGPLv3
+  Ublox (GPS) interface.
 
   GPGGA: 2=time; 3=lat; 4=N or S; 5=long; 6=E or W; 7=fix;
   8=nsats; 9=dilution; 10=altitude; 11=geoid; 12=?; 13=?;

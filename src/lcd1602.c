@@ -1,7 +1,8 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  Simple interface to i2c lcd backpack.
-  Assumes 1602 size.
+  (C) 2019 Harold Tay LGPLv3
+  Simple interface to i2c backpack on lcd (don't use raw parallel
+  interface version) for tracker.
+  Assumes 1602 (16 chars and 2 lines) size.
  */
 
 #include "i2c.h"

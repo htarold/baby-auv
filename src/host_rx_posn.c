@@ -1,7 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Receive packets from Baby AUV.
-  Input/output from stdin/stdout.
+  Input/output from stdin/stdout (on desktop host).
  */
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Fat32.  Only the lowest level functionality is provided.
   Assumes little endian platform (which AVR is).
  */

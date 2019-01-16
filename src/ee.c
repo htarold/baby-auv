@@ -1,11 +1,9 @@
-/* (C) 2019 Harold Tay LGPLv3 */
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Calibration values in builtin EEPROM.
+ */
 #include <avr/eeprom.h>
 #include "ee.h"
-
-/*
-  Adaptive saving: save only when value is stable (has not
-  changed "much" in a "while").
- */
 
 struct ee ee EEMEM;
 

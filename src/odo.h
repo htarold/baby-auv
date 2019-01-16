@@ -1,15 +1,16 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef ODO_H
 #define ODO_H
 #include "nav.h"
 
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Uses dead reckoning with drift estimation, in addition to
+  managing the propeller odometer.
+  Insufficiently tested.
+ */
+
 /* For debugging */
 struct cartesian { int32_t north, east; };
-
-/*
-  Uses dead reckoning with current estimation, in addition to
-  managing the propeller odometer.
- */
 
 extern void odo_init(void);
 

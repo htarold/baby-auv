@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Odometer functions.  Actually performs dead reckoning,
   not only odometer readings (but "odo" is a shorter
   prefix).  Also estimates drift.

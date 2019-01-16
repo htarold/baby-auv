@@ -1,14 +1,14 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef NAV_H
 #define NAV_H
 
 /*
-  it takes 26 bits to encode the angular measure.  Where latitudes
-  and longitudes are concerned, the UPPER 26 bits are used, so
-  that arithmetic causes overflow automatically.  Where
-  distances (range field in struct nav) are concerned, the value is
-  divided by 64 (right justified), so we won't normally need to use
-  32-bit arithmetic.
+  (C) 2019 Harold Tay LGPLv3
+  Easier to do artihmetic in angular measures where 2^26 angular
+  measures constitutes a circle.  The UPPER 26 bits in a 32-bit
+  int are used, so overflow is permissible and safe.
+  Angular measures are also used for distance in (struct nav),
+  which is the angle the distance subtends on the surface of the
+  earth.
  */
 
 typedef int32_t nav_t;
@@ -32,6 +32,8 @@ struct nav {
 };
 
 extern struct nav nav_rhumb(struct nav_pt * fr, struct nav_pt * to);
+/* Undebugged
 extern int8_t nav_reckon(struct nav_pt * position, int16_t north, int16_t east);
+ */
 
 #endif /* NAV_H */

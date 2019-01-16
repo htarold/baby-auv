@@ -1,4 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
+/*
+  (C) 2019 Harold Tay LGPLv3
+  FAT32 filesystem layer.
+ */
 #ifndef F32_H
 #define F32_H
 #include <stdint.h>

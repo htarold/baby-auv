@@ -1,10 +1,6 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  Extends the f32 interface.  Only 2 operations are allowed:
-  appending to the end of a file, and reading from the start of
-  a file.  After a full cluster is read from the start of the
-  file, that cluster is unlinked.  This is peculiar to FAT
-  systems.
+  (C) 2019 Harold Tay LGPLv3
+  Builds upon f32 interface.
  */
 
 #include <string.h>                   /* for memcpy */

@@ -1,6 +1,6 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  LSM303
+  (C) 2019 Harold Tay LGPLv3
+  LSM303:
   Accel gives 12 bit values, but range is +/-2g, so 1g
   corresponds to 1024.
   Bits are LEFT aligned.

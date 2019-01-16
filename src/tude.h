@@ -1,8 +1,11 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef TUDE_H
 #define TUDE_H
 #include <stdint.h>
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Higher level interface to lsm303.c without device specific
+  dependencies.
+
   Which way is the unit installed?
   Assumes the chip is using a right-hand system.
   Avoids rotation matrices, since orientations are in full right

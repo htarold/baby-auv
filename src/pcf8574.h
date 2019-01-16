@@ -1,8 +1,8 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef PCF8574_H
 #define PCF8574_H
 /*
-  I2C port expander
+  (C) 2019 Harold Tay LGPLv3
+  I2C port expander, used in forward bulkhead RF board.
  */
 #include <stdint.h>
 

@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Foreground tasks for pitch testing.
   Don't need GPS or RF.
  */

@@ -1,10 +1,12 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef SEL_H
 #define SEL_H
 #include <stdint.h>
 /*
-  Selector macros for GPS and RF.  Bits refer to the pcf8574
-  port expander, which is set to all outputs.
+  (C) 2019 Harold Tay LGPLv3
+  Forward bulkhead board must interface to multiple serial
+  interfaces and control power to multiple devices.
+
+  Bits refer to the pcf8574 port expander, which is set to all outputs.
  */
 
 #define BIT_UNUSED_0   0x01

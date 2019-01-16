@@ -1,4 +1,3 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef THRUST_H
 #define THRUST_H
 
@@ -8,6 +7,8 @@
 #define RPM_PIN PIND
 
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Interface to the thruster, including thruster walk functionality.
   pwm module contains macros for the pins.
  */
 

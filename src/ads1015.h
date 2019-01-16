@@ -4,7 +4,7 @@
 /*
   7-bit device address, depending on how the ADDR pin (pin 1) is
   connected.
-  Most macros as the same for ADS1115 (16-bit version).
+  Most macros are the same for ADS1115 (16-bit version).
  */
 /*
  */

@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Alternate foreground task, for use in tracker.
   Hardware has been modified to keep GPS powered on all the time.
   I.e. switching will not turn off GPS, but WILL turn off HC12.

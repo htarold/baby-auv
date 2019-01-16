@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <avr/pgmspace.h>
+#include "time.h"
 #include "morse.h"
 #include "file.h"
 #include "syslog.h"

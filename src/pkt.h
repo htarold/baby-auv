@@ -1,9 +1,9 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef PKT_H
 #define PKT_H
 #include <stdint.h>
 #include "nav.h"
 /*
+  (C) 2019 Harold Tay LGPLv3
   All data packet in the air will start with this header.  The
   payload follows, then the CRC (2 bytes).  The length of the
   packet excluding the CRC can be implicit in the type.  Or the

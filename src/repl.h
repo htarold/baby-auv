@@ -1,9 +1,9 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef REPL_H
 #define REPL_H
 #include "nav.h"
 
 /*
+  (C) 2019 Harold Tay LGPLv3
   The mission script is found at the start of LOGFILE.TXT.
   (normal system logging is appended to this same file, and does
   not interfere with the mission script).

@@ -1,4 +1,3 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef CSV_H
 #define CSV_H
 
@@ -6,6 +5,8 @@
 #include "nav.h"
 
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Scans comma separated values in a buffer.
   Functions return number of chars consumed.
  */
 /* Internal accumulator, sometimes used to return values */

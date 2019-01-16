@@ -1,9 +1,11 @@
-/* (C) 2019 Harold Tay LGPLv3 */
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Send morse code from piezo buzzer.
+ */
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include "morse.h"
-#include "time.h"
 #include "cbuf.h"
 #include "handydefs.h"
 

@@ -2,16 +2,16 @@
 #ifndef CTRL_H
 #define CTRL_H
 
-#define CTRL_ERR_POSE -1              /* AUV pose beyond controllable */
-#define CTRL_ERR_TUDE -2              /* error reading attitude */
-#define CTRL_ERR_CTD -3               /* error reading CTD */
-#define CTRL_ERR_PITCH -4             /* pitch or tude error */
+#define CTRL_ERR_POSE    -1           /* AUV pose beyond controllable */
+#define CTRL_ERR_TUDE    -2           /* error reading attitude */
+#define CTRL_ERR_CTD     -3           /* error reading CTD */
+#define CTRL_ERR_PITCH   -4           /* pitch or tude error */
 #define CTRL_ERR_TIMEOUT -5           /* timed out twirling */
-#define CTRL_ERR_AIM -6               /* twirl action not successful */
+#define CTRL_ERR_AIM     -6           /* twirl action not successful */
 
-#define CTRL_CMD_TWIRL 1
-#define CTRL_CMD_PITCH 2
-#define CTRL_CMD_THRUST 4             /* used with CTRL_CMD_PITCH */
+#define CTRL_CMD_TWIRL    1
+#define CTRL_CMD_PITCH    2
+#define CTRL_CMD_THRUST   4           /* used with CTRL_CMD_PITCH */
 
 /*
   cmd is bitwise OR of CTRL_CMD_TWIRL, _PITCH, _THRUST

@@ -1,7 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Foreground tasks to test swimming.
-  No need to any RF code.
+  No need for any RF code.
  */
 
 #include <util/crc16.h>

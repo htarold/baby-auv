@@ -1,7 +1,8 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef TIMER_H
 #define TIMER_H
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Keeps processor uptime.
   Timer1 with prescaler of /8, with this TOP value gives 20ms
   before overflow.  This 20ms is used to update the uptime
   clock, and is also the PPM frame rate.

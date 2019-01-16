@@ -1,12 +1,12 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef FILE_H
 #define FILE_H
 
 /*
+  (C) 2019 Harold Tay LGPLv3
   There is no way to close a file.  File operations are
   sector based; writes are buffered so may not be synced
   immediately.  This means the last sector of a file could
-  be lost.
+  be lost if shut down and not explicitly syned.
  */
 #include "f32.h"
 struct file {

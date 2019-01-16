@@ -1,6 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  Send a position packet using given parameters.
+  (C) 2019 Harold Tay LGPLv3
+  Send a position packet from desktop host using given parameters.
+  Primarily for testing purposes.
  */
 #include <stdio.h>
 #include <stdlib.h>

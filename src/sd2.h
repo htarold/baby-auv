@@ -1,7 +1,11 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef SD_H
 #define SD_H
 #include <stdint.h>
+
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Low level routines to interface to the SD card.
+ */
 
 /* SPI pins we use */
 #define SD_CS_BIT    PC0

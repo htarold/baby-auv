@@ -1,6 +1,6 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  Parsing NMEA fields.
+  (C) 2019 Harold Tay LGPLv3
+  Parsing comma separated values in NMEA sentences.
  */
 #include <stdint.h>
 #include <string.h>

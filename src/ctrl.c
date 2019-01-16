@@ -1,12 +1,11 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  Controllers are responsible for a particular behaviour.  Some
-  controllers are called synchronously, some are persistent (basically
-  they take over the task).
-  More than one controller can be active at a
-  time.
+  (C) 2019 Harold Tay LGPLv3
+  Controllers are responsible for a particular behaviour.
+  Some controllers are called synchronously, some are persistent
+  (basically they take over the task).  More than one controller
+  can be active at a time.
 
-  "Owns" pitch and thruster.
+  This module "owns" pitch and thruster.
  */
 #include <stdint.h>
 #include "yield.h"
@@ -38,7 +37,7 @@ void ctrl_thruster(int8_t percent, int8_t walk)
 
 /*
   Nose up, twirl, pitch level, begin thrust, or any subset.
-  Does not factor well into separate functions.
+  (Because this does not factor well into separate functions.)
  */
 
 static uint8_t curvedn(int16_t new, int16_t old)
@@ -305,6 +304,7 @@ static int8_t control_depth(int16_t cm_sp)
   return(0);
 }
 
+/* "Steady as she goes" */
 int8_t ctrl_steady(uint8_t hdg_sp, int16_t cm_sp)
 {
   int8_t er, i;

@@ -1,8 +1,8 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef TX_H
 #define TX_H
 /*
-  Print to uart0
+  (C) 2019 Harold Tay LGPLv3
+  Print to uart0, largely for diagnostics.
  */
 #include <stdint.h>
 #include <avr/pgmspace.h>

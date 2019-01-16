@@ -1,4 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Low level routines to interface to the SD card.
+ */
 #include <avr/io.h>
 #include <util/delay.h>
 #include "handydefs.h"

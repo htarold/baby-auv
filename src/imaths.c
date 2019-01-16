@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   From http://www.romanblack.com/integer_degree.htm
  */
 #include <avr/pgmspace.h>

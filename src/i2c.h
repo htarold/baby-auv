@@ -1,12 +1,15 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef I2C_H
 #define I2C_H
-#define I2C_NOSTART -1
-#define I2C_NOSLACK -2
+/*
+  (C) 2019 Harold Tay LGPLv3
+  I2C interface for AVR.
+ */
+#define I2C_NOSTART   -1
+#define I2C_NOSLACK   -2
 #define I2C_NORESTART -3
-#define I2C_NODACK -4
-#define I2C_NONACK -5
-#define I2C_TIMEOUT -6
+#define I2C_NODACK    -4
+#define I2C_NONACK    -5
+#define I2C_TIMEOUT   -6
 #include <stdint.h>
 #include <util/twi.h>
 

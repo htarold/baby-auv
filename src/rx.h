@@ -1,9 +1,10 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 #ifndef RX_H
 #define RX_H
 #include <stdint.h>
 
 /*
+  (C) 2019 Harold Tay LGPLv3
+  Read from uart into circular buffer.
   when enabled, ISR reads into circular buffer.
   Speed is determined by tx.c (typically 57600).
  */

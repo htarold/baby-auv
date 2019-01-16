@@ -1,6 +1,6 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
-  transmit and receive using the HC12.
+  (C) 2019 Harold Tay LGPLv3
+  Transmit and receive using the HC12.
  */
 #include <stdint.h>
 #include "hc12.h"

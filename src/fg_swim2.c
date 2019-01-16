@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Foreground tasks to test swimming back and forth until
   interrupted by user.
   No need for any RF or GPS code.

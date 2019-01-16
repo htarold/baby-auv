@@ -1,5 +1,5 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 /*
+  (C) 2019 Harold Tay LGPLv3
   Cooperative multitasking scheduler.  All tasks are declared in
   tasks.h, and main() will run them in turn.  Tasks should not
   poll or spin-wait; instead, they should call yield().

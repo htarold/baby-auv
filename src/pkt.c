@@ -1,7 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
 
 /*
-  Packet handling routines.
+  (C) 2019 Harold Tay LGPLv3
+  Packet handling routines.  Requires much more testing.
  */
 
 #include <string.h> /* for memcpy() */

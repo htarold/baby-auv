@@ -1,4 +1,7 @@
-/* (C) 2019 Harold Tay LGPLv3 */
+/*
+  (C) 2019 Harold Tay LGPLv3
+  Foreground task interface.
+ */
 #ifndef FG_H
 #define FG_H
 

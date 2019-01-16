@@ -6,28 +6,18 @@
 #define CTD_ADDR ADS1015_ADDR_GND
 /*
   (C) 2019 Harold Tay LGPLv3
-  Read raw ADC counts.  Each call will block for few milliseconds if
-  ADC has not already been set up (is the first call).  To set
-  up, call with pointer null and call again in 10ms.
+  CTD board carries ADS1115 chip.  Like ads1015_*(), it takes 2
+  calls to read a parameter: ctd_Setup(), then ctd_read().
+  ADS1115 is slow, need to wait an appropriate amount of time
+  before reading the conversion.
 
-  CANNOT interlace calls:
-  OK: ctd_get_rawc(0); ctd_get_rawc(&c); ctd_get_rawc(&c);...
-  NOT OK: ctd_get_rawc(...); ctd_get_rawc(...); ctd_get_rawt(...);
-
-  Actual ADC used is ADS1115, not 1015.
-
-  Uses Timer 0; don't use it for anything else.
-
-  XXX ADS1115 draws only 0.3mA when running.  Any way to keep it
-  running all the time?  And scan through the channels?  No, no
-  way to scan channels.
-
-  XXX Single synchrnous call, but calls yield() internally.
-  XXX Pointer address does not auto-increment.
+  CTD board requires host to provide excitation to conductivity cell.
+  The presence of this excitation also functions to power on the
+  board.
  */
 
 #define CTD_DEPTH 0
-#define CTD_COND 1
+#define CTD_COND  1
 #define CTD_THERM 2
 
 /* Read calib values */
