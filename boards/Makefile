@@ -7,7 +7,8 @@ CFLAGS= -std=c99 -DF_CPU=16000000UL -O -g -Wall -mmcu=`[ -f MCU ] && cat MCU || 
 #DUDEFLAGS=-v -v -F -p `[ -f PARTNO ] && cat PARTNO || cat $*.partno` -cusbasp -F
 DUDEFLAGS=-v -v -F -p `[ -f PARTNO ] && cat PARTNO || cat $*.partno` -carduino -P $(TTY) -b 57600
 
-boards= bat encode pf-thruster pf-mcu neo6m-hc12 pf-ec mpx5700-pcb
+boards= bat encode pf-thruster pf-mcu neo6m-hc12 pf-ec mpx5700-pcb \
+tracker-power
 all: $(foreach b, $(boards), $(b).tgz) sym
 
 boardclean: $(foreach b, $(boards), $(b).boardclean)
